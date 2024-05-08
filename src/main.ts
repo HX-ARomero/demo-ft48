@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { LoggerGlobalMiddleware } from './middlewares/logger';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+const PORT = process.env.PORT || 3000;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -23,7 +24,7 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-  await app.listen(3000);
-  console.log('Server listening on http://localhost:3000');
+  await app.listen(PORT);
+  // console.log('Server listening on http://localhost:3000');
 }
 bootstrap();
